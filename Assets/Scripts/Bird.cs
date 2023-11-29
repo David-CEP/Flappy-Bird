@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bird : MonoBehaviour
 {
     private Vector2 initialBird = new Vector2(-5f, 0f);
     public GameObject tuberiaArriba;
     public bool started;
+    public TMP_Text Press;
+    public TMP_Text Title;
 
     void Start()
     {
@@ -33,12 +36,19 @@ public class Bird : MonoBehaviour
                 initialPush();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Respawn();
+        }
     }
 
     private void initialPush()
     {
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
         started = true;
+        Press.enabled = false;
+        Title.enabled = false;
         InvokeRepeating("spawnTuberias", 0, 7);
     }
 
@@ -63,6 +73,12 @@ public class Bird : MonoBehaviour
     private void Die()
     {
         transform.position = initialBird;
+        Time.timeScale = 0;
+    }
+
+    private void Respawn()
+    {
+        Time.timeScale = 1;
     }
 
     private void screenBlack()
@@ -72,5 +88,6 @@ public class Bird : MonoBehaviour
         {
             Destroy(tuberia, 0);
         }
+        Die();
     }
 }
