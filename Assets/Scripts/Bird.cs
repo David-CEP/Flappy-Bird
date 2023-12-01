@@ -8,35 +8,37 @@ public class Bird : MonoBehaviour
     private Vector2 initialBird = new Vector2(-5f, 0f);
     public GameObject tuberiaArriba;
     public bool started;
-    public TMP_Text Press;
-    public TMP_Text Title;
+    public TMP_Text Restart;
+    public GameObject mainTuberia;
 
     void Start()
     {
+        Vector3[] coords = new Vector3[]{ mainTuberia.GetComponentInChildren<tuberiaAbajoUno>().transform.position };
+        Restart.enabled = false;
+        initialPush();
     }
 
     void Update()
     {
-        if (started && Input.GetKeyDown(KeyCode.Space))
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
-        }
         GameObject[] tuberias = GameObject.FindGameObjectsWithTag("Tuberia");
-        foreach(GameObject tuberia in tuberias)
+        int i = 0;
+        foreach (GameObject tuberia in tuberias)
         {
             Vector3 tempPosicion = tuberia.transform.position;
+            coords[i] = tempPosicion;
+            i++;
             tuberia.transform.position = new Vector3(tempPosicion.x - 0.002f, tempPosicion.y, tempPosicion.z);
-            
         }
 
-        if (!started && Input.GetKeyDown(KeyCode.Space))
+        if (!Restart.enabled && Input.GetKeyDown(KeyCode.Space))
         {
-            initialPush();
+            transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            Respawn();
+            Time.timeScale = 1;
+            Restart.enabled = false;
         }
     }
 
@@ -44,38 +46,29 @@ public class Bird : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
         started = true;
-        Press.enabled = false;
-        Title.enabled = false;
-        InvokeRepeating("spawnTuberias", 0, 7);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Limite" || collision.gameObject.tag == "Tuberia")
+        if (collision.gameObject.tag == "Limite" || collision.gameObject.tag == "Tuberia")
         {
             screenBlack();
         }
     }
 
-    private void spawnTuberias()
-    {
-        Instantiate(tuberiaArriba, new Vector3(0f, 0f, 0f), Quaternion.identity);
-    }
-
-    private void Respawn()
-    {
-        Time.timeScale = 1;
-    }
-
     private void screenBlack()
     {
         GameObject[] tuberias = GameObject.FindGameObjectsWithTag("Tuberia");
-        foreach(GameObject tuberia in tuberias)
-        {
-            Destroy(tuberia, 0);
-        }
         transform.position = initialBird;
+        int i = 0;
+        foreach (GameObject tuberia in tuberias)
+        {
+            tuberia.transform.position = coords[i];
+            i++;
+        }
         Time.timeScale = 0;
         started = false;
+        Restart.enabled = true;
+
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Limite
   - Tuberia
+  - Restart
   layers:
   - Default
   - TransparentFX
