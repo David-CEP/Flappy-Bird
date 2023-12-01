@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (started && Input.GetKeyDown(KeyCode.Space))
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
         }
@@ -29,12 +29,9 @@ public class Bird : MonoBehaviour
             
         }
 
-        if (!started)
+        if (!started && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                initialPush();
-            }
+            initialPush();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -54,12 +51,7 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Limite")
-        {
-            Die();
-        }
-
-        if(collision.gameObject.tag == "Tuberia")
+        if(collision.gameObject.tag == "Limite" || collision.gameObject.tag == "Tuberia")
         {
             screenBlack();
         }
@@ -68,12 +60,6 @@ public class Bird : MonoBehaviour
     private void spawnTuberias()
     {
         Instantiate(tuberiaArriba, new Vector3(0f, 0f, 0f), Quaternion.identity);
-    }
-    
-    private void Die()
-    {
-        transform.position = initialBird;
-        Time.timeScale = 0;
     }
 
     private void Respawn()
@@ -88,6 +74,8 @@ public class Bird : MonoBehaviour
         {
             Destroy(tuberia, 0);
         }
-        Die();
+        transform.position = initialBird;
+        Time.timeScale = 0;
+        started = false;
     }
 }
