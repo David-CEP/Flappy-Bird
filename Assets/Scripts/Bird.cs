@@ -1,33 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Bird : MonoBehaviour
 {
-    private Vector2 initialBird = new Vector2(-5f, 0f);
     public GameObject tuberiaArriba;
     public bool started;
     public TMP_Text Restart;
-    public GameObject mainTuberia;
+    public float velocity = 0.100f;
 
     void Start()
     {
-        Vector3[] coords = new Vector3[]{ mainTuberia.GetComponentInChildren<tuberiaAbajoUno>().transform.position };
         Restart.enabled = false;
         initialPush();
     }
 
     void Update()
     {
-        GameObject[] tuberias = GameObject.FindGameObjectsWithTag("Tuberia");
-        int i = 0;
-        foreach (GameObject tuberia in tuberias)
+        GameObject[] tuberiasArriba = GameObject.FindGameObjectsWithTag("TuberiaArriba");
+        GameObject[] tuberiasAbajo = GameObject.FindGameObjectsWithTag("TuberiaAbajo");
+
+        if(Time.timeScale == 1)
         {
-            Vector3 tempPosicion = tuberia.transform.position;
-            coords[i] = tempPosicion;
-            i++;
-            tuberia.transform.position = new Vector3(tempPosicion.x - 0.002f, tempPosicion.y, tempPosicion.z);
+            foreach (GameObject tuberia in tuberiasArriba)
+            {
+                Vector3 tempPosicion = tuberia.transform.position;
+                tuberia.transform.position = new Vector3(tempPosicion.x - velocity, tempPosicion.y, tempPosicion.z);
+            }
+
+            foreach (GameObject tuberia in tuberiasAbajo)
+            {
+                Vector3 tempPosicion = tuberia.transform.position;
+                tuberia.transform.position = new Vector3(tempPosicion.x - velocity, tempPosicion.y, tempPosicion.z);
+            }
         }
 
         if (!Restart.enabled && Input.GetKeyDown(KeyCode.Space))
@@ -37,8 +44,10 @@ public class Bird : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             Time.timeScale = 1;
             Restart.enabled = false;
+            started = true;
         }
     }
 
@@ -50,7 +59,7 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Limite" || collision.gameObject.tag == "Tuberia")
+        if (collision.gameObject.tag == "Limite" || collision.gameObject.tag == "TuberiaAbajo" || collision.gameObject.tag == "TuberiaArriba")
         {
             screenBlack();
         }
@@ -58,14 +67,6 @@ public class Bird : MonoBehaviour
 
     private void screenBlack()
     {
-        GameObject[] tuberias = GameObject.FindGameObjectsWithTag("Tuberia");
-        transform.position = initialBird;
-        int i = 0;
-        foreach (GameObject tuberia in tuberias)
-        {
-            tuberia.transform.position = coords[i];
-            i++;
-        }
         Time.timeScale = 0;
         started = false;
         Restart.enabled = true;

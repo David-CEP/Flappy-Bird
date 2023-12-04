@@ -7,6 +7,9 @@ TagManager:
   - Limite
   - Tuberia
   - Restart
+  - TuberiaArriba
+  - TuberiaAbajo
+  - Score
   layers:
   - Default
   - TransparentFX
