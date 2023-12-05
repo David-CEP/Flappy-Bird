@@ -9,32 +9,55 @@ public class Bird : MonoBehaviour
     public GameObject tuberiaArriba;
     public bool started;
     public TMP_Text Restart;
-    public float velocity = 0.100f;
+    public TMP_Text Start_txt;
+    public TMP_Text Score_txt;
+    public float velocity = 5f;
+    public bool collided;
+    public bool god = false;
 
     void Start()
     {
+        GameObject[] tuberiasArriba = GameObject.FindGameObjectsWithTag("TuberiaArriba");
+        GameObject[] tuberiasAbajo = GameObject.FindGameObjectsWithTag("TuberiaAbajo");
         Restart.enabled = false;
-        initialPush();
+        Start_txt.enabled = true;
+        foreach (GameObject tuberia in tuberiasArriba)
+        {
+
+            Vector3 tempPosicion = tuberia.transform.position;
+            tuberia.GetComponent<Rigidbody2D>().velocity = Vector2.left * velocity;
+        }
+
+        foreach (GameObject tuberia in tuberiasAbajo)
+        {
+            Vector3 tempPosicion = tuberia.transform.position;
+            tuberia.GetComponent<Rigidbody2D>().velocity = Vector2.left * velocity;
+        }
+        Score_txt.enabled = false;
+        Time.timeScale = 0;
     }
 
     void Update()
     {
-        GameObject[] tuberiasArriba = GameObject.FindGameObjectsWithTag("TuberiaArriba");
-        GameObject[] tuberiasAbajo = GameObject.FindGameObjectsWithTag("TuberiaAbajo");
-
-        if(Time.timeScale == 1)
+        if (!god)
         {
-            foreach (GameObject tuberia in tuberiasArriba)
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                Vector3 tempPosicion = tuberia.transform.position;
-                tuberia.transform.position = new Vector3(tempPosicion.x - velocity, tempPosicion.y, tempPosicion.z);
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                god = true;
             }
+        }else if (god)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                god = false;
+            }
+        }
 
-            foreach (GameObject tuberia in tuberiasAbajo)
-            {
-                Vector3 tempPosicion = tuberia.transform.position;
-                tuberia.transform.position = new Vector3(tempPosicion.x - velocity, tempPosicion.y, tempPosicion.z);
-            }
+        if(!started && Input.GetKeyDown(KeyCode.Space))
+        {
+            initialPush();
         }
 
         if (!Restart.enabled && Input.GetKeyDown(KeyCode.Space))
@@ -53,8 +76,14 @@ public class Bird : MonoBehaviour
 
     private void initialPush()
     {
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
-        started = true;
+        if (!collided)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+            started = true;
+            Time.timeScale = 1;
+            Start_txt.enabled = false;
+            Score_txt.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,6 +99,6 @@ public class Bird : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         Restart.enabled = true;
-
+        collided = true;
     }
 }

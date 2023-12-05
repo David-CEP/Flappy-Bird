@@ -151,8 +151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13210526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.99, y: -2.69, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 13.99, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -218,7 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 1671414020}
 --- !u!212 &13210531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -271,6 +272,141 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &67796931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67796932}
+  - component: {fileID: 67796934}
+  - component: {fileID: 67796933}
+  m_Layer: 5
+  m_Name: Start_txt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &67796932
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67796931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 696245119}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -49.7, y: 141.63}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &67796933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67796931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Press Space to start
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &67796934
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67796931}
+  m_CullTransparentMesh: 1
 --- !u!1 &84638016
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84638016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: -4.1, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -417,6 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 1354823973}
 --- !u!1 &132938330
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,8 +582,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132938330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.38, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: 5.38, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -464,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 1414570918}
 --- !u!50 &132938333
 Rigidbody2D:
   serializedVersion: 4
@@ -665,8 +803,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470091035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.38, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: 8.38, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -684,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 550192089}
 --- !u!50 &470091038
 Rigidbody2D:
   serializedVersion: 4
@@ -895,8 +1034,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550192089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.99, y: -2.69, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 22.99, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -962,7 +1101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 470091035}
 --- !u!212 &550192094
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1082,8 +1222,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1244,6 +1384,7 @@ RectTransform:
   m_Children:
   - {fileID: 636028099}
   - {fileID: 1535538056}
+  - {fileID: 67796932}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1338,8 +1479,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927587705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.41, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: 11.41, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -1357,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 1586422877}
 --- !u!50 &927587708
 Rigidbody2D:
   serializedVersion: 4
@@ -1610,8 +1752,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354823973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.49, y: -2.7, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 10.49, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -1630,7 +1772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 84638016}
 --- !u!212 &1354823976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1758,8 +1901,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414570918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.98, y: -2.69, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 19.98, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -1825,7 +1968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 132938330}
 --- !u!212 &1414570923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2099,8 +2243,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586422877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.011, y: -2.69, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 26.011, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -2166,7 +2310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 927587705}
 --- !u!212 &1586422882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2278,7 +2423,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 1
+  m_LinearDrag: 0.7
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -2368,6 +2513,11 @@ MonoBehaviour:
   tuberiaArriba: {fileID: 3751174542742630163, guid: e62ff56c19d838040a3b8a21fb79ccdb, type: 3}
   started: 0
   Restart: {fileID: 636028100}
+  Start_txt: {fileID: 67796933}
+  Score_txt: {fileID: 1535538057}
+  velocity: 5
+  collided: 0
+  god: 0
 --- !u!1 &1671414020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,8 +2546,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671414020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.61, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: -0.61, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -2415,6 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 13210526}
 --- !u!50 &1671414023
 Rigidbody2D:
   serializedVersion: 4
@@ -2600,8 +2751,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943334196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.96, y: -2.69, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalPosition: {x: 16.96, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 331742768}
@@ -2667,7 +2818,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 1535538057}
-  Bird: {fileID: 0}
+  Bird: {fileID: 1649833432}
+  tuberiaRespectiva: {fileID: 2023070587}
 --- !u!212 &1943334201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2748,8 +2900,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023070587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.37, y: 5.137, z: 0.09994835}
-  m_LocalScale: {x: 1, y: 4.6, z: 1}
+  m_LocalPosition: {x: 2.37, y: 6.94, z: 0.09994835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 329517240}
@@ -2767,6 +2919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d321f05e8d0c5814c86ed3584d7d40c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tuberiaRespectiva: {fileID: 1943334196}
 --- !u!50 &2023070590
 Rigidbody2D:
   serializedVersion: 4
